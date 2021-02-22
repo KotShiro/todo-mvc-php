@@ -36,7 +36,7 @@ class Controller {
             }
             $valuForSort = mb_substr($valuForSort, 0, -2);
         } else {
-            $valuForSort = "ORDER BY `tsak`.`id` DESC";
+            $valuForSort = "ORDER BY `task`.`id` DESC";
         }
         $url = trim($_SERVER['REQUEST_URI'], '/');
         $pattern = '/[^0-9]/';
@@ -64,6 +64,7 @@ class Controller {
             $getEmail = $_GET['email'];
             $getState = $_GET['state'];
         }
+
         $arrElements = [
             'checkCookie' => $this->checkCookie,
             'tasks' => $result['result'],

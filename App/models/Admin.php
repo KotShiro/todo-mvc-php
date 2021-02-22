@@ -6,7 +6,7 @@ use app\core\Model;
 class Admin extends Model {
 
     public function editTask($name, $email, $content, $state, $id) {
-        $sql = "SELECT content, edit FROM`tsak` WHERE id = :id LIMIT 1";
+        $sql = "SELECT content, edit FROM`task` WHERE id = :id LIMIT 1";
 
         $param = [
             'id' => $id,
@@ -19,7 +19,7 @@ class Admin extends Model {
             $edit = '1';
         }
 
-        $sql = "UPDATE `tsak` SET `name` = :name, `email` = :email, `content` = :content, `state` = :state, `edit` = :edit WHERE `tsak`.`id` = :id";
+        $sql = "UPDATE `task` SET `name` = :name, `email` = :email, `content` = :content, `state` = :state, `edit` = :edit WHERE `task`.`id` = :id";
         $param = [
             'id' => $id,
             'name' => $name,

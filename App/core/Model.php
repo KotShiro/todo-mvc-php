@@ -37,9 +37,9 @@ abstract class Model {
     }
 
     public function getTasks($offset, $sizePage, $sortValue) {
-        $result = $this->db->row("SELECT * FROM `tsak`");
+        $result = $this->db->row("SELECT * FROM `task`");
         $totalPages = ceil(count($result) / $sizePage);
-        $sql = "SELECT * FROM `tsak` $sortValue LIMIT $offset, $sizePage";
+        $sql = "SELECT * FROM `task` $sortValue LIMIT $offset, $sizePage";
         $result = $this->db->row($sql);
         if(empty($result)) {
             return [
@@ -48,8 +48,10 @@ abstract class Model {
                     [
                         'name' => '',
                         'email' => '',
-                        'content' => 'Страница пуста, вы попали не туда ;С ',
-                        'state' => ''
+                        'content' => 'Страница пуста, вы попали не туда ;С',
+                        'state' => '',
+                        'id' => '',
+                        'edit' => '',
                     ]
                 ]
             ];
